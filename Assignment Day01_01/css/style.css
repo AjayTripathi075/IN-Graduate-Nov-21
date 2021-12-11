@@ -1,0 +1,28 @@
+
+header
+{
+  background-color: tomato;
+  color: white;
+  text-align: center;
+  padding: 5px;
+}
+.Footer
+{
+  color:white;
+  background-color: tomato;
+  text-align: center;
+  padding: 3px;
+}
+
+#form{
+ padding:1%;
+ font-family:'Times New Roman', Times, serif;
+ font-size: 20px;;
+}
+.btn1
+{
+  background-color: tomato;
+  color: white;
+  font-size: 20px;
+  border-radius: 5px;
+}
