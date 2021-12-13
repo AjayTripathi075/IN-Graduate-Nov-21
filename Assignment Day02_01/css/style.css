@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 
 #add1
 {
@@ -27,4 +28,35 @@ article{
 #sec1
 {
   padding-left:23px;
+=======
+
+#add1
+{
+  text-align:right;
+  font-size: 18px;
+  padding-right: 20px;
+  width: auto;
+ 
+}
+body{
+  margin:0;
+}
+#add2
+{
+  text-align:left;
+  font-size: 18px;
+  padding: 2px;
+}
+#ht1
+{
+  padding-left: 25px;
+}
+article{
+  padding-left:23px;
+  
+}
+#sec1
+{
+  padding-left:23px;
+>>>>>>> Stashed changes
 }

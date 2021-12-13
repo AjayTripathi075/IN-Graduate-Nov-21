@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 body{
   margin:0;
 }
@@ -248,4 +249,256 @@ padding-bottom: 60px;
   color: white;
   font-size: 20px;
   padding: 10px;
+=======
+body{
+  margin:0;
+}
+header{
+  background-color: aliceblue;
+  height: 80px;
+}
+#Header-container
+{
+  width: 80%;
+ margin: auto;
+}
+.col-3{
+  width: 33%;
+  float:left;
+}
+.logo
+{
+  padding-top:30px;
+  float:left;
+}
+.menu li
+{
+list-style-type: none;
+display: inline;
+font-size :20px;;
+color:black;
+padding: 5px;
+}
+
+.menu li:hover
+{
+  background-color:brown;
+  color:white;
+  border-radius: 10px;
+}
+
+.getstarted
+{
+  background-color: yellowgreen;
+  border-radius: 28px;
+  text-decoration: none;
+  font-size: 20px;
+  color:white;
+  padding: 10px  26px;
+  margin-top: 20px;
+  -moz-border-radius:28px;
+  -webket-border-radius:28px;
+  display: inline-block;
+}
+
+.top-section-main
+{
+  background-image: url("/UdemyProject/images/Friends.jpg") ;
+  height: 740px;
+ border: none;
+
+}
+.top-section-content
+{
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+}
+
+.top-section-content h1{
+  font-size:4em;
+  font-weight:300;
+  color: #ffff;
+  text-align: center;
+  margin-top: 0;
+  padding-top: 100px;
+  margin-bottom:0;
+}
+.top-section-content p{
+  font-size:1.3em;
+  font-weight:400;
+  color: #ffff;
+  text-align: center;
+ margin: bottom 15px;;
+}
+.play-button
+{
+  float: center;
+  border-radius: 120px;
+  height:120px;
+  width: 120px;
+  display: block;
+  margin-left:auto;
+  margin-right: auto;
+  padding:50px;
+}
+.main-form h6{
+  font-size:1em;
+  font-weight:400;
+  color: #ffff;
+  text-align: center;
+  margin-bottom:0;
+}
+.main-form input{
+  margin:0;
+  width:30%;
+  height:40px;
+}
+.main-form button
+{
+  margin:0;
+  width:30%;
+  height:45px;
+  background-color:greenyellow;
+  color:black;
+  border-radius : 10px;;
+}
+#Feature-Section
+{
+  padding: 100px;;
+}
+.Feature-Section-title
+{
+  width:70%;
+  text-align:center;
+  font-weight: 200;
+  line-height:1.3em;
+  margin:auto;
+}
+.feature-content
+{
+  margin: auto;
+  width:100%;
+  text-align: center;
+  padding-top: 70px;
+}
+.feature-content .col-3 img
+{
+  width:100%;
+}
+.feature-content .col-3 p
+{
+ font-size:0.9em;
+ letter-spacing: 1px;
+}
+.feature-content .col-3 h3{
+  text-align: center;
+}
+.feature-content .col-3
+{
+  padding:10px;
+  width:30%;
+}
+.col-2
+{
+  float: left;
+  width: 48%;
+}
+.showcase1-container
+{
+  padding-top: 60px;
+  background-color: #f6f8fa;
+  width:100%;
+  clear: both;
+}
+.showcase
+{
+width:80%;
+margin:auto;
+overflow:auto;
+}
+.showcase1pec
+{
+width:100%;
+}
+.features-text
+{
+  padding-top :300px;
+  padding-left:58px ;
+}
+.section-title
+{
+  width:70%;
+  margin: auto;
+  font-weight: 200;
+  line-height: 1.5em;
+}
+.sectio-left
+{
+  width:70%;
+  padding: 20px 10px 10px 10px;
+  margin: auto;
+  font-weight: 200;
+  line-height: 1.5em;
+}
+.sectio-right
+{
+  width:70%;
+  padding: 20px 10px 10px 10px;
+  margin: auto;
+  font-weight: 200;
+  line-height: 1.5em;
+}
+.col-1
+{
+  width:80%;
+  margin: auto;
+}
+.call-to-action
+{
+  background-image: url("/UdemyProject/images/Darkdesk.png") ;
+   background-position:50% 50%;
+   padding-bottom: 45px;
+}
+.action-title
+{
+  font-size: 4em;
+  font-weight: 300;
+  color: white;
+  text-align: center;
+  margin-top: 0;
+  padding-top:100px;
+  margin-bottom: 0;
+}
+.col-1 p{
+font-size:1.6em;
+font-weight: 400;
+text-align: center;
+color: white;
+padding-bottom: 60px;
+}
+.signupBtn
+{
+  background-color: yellowgreen;
+  color: white;
+  text-decoration: none;
+  padding: 20px 90px;
+  font-size: 1em;
+  font-weight: 200;
+}
+.signupBtn:hover
+{
+  background-color: green;
+  color: white;
+}
+#f1
+{
+  margin:auto;
+  text-align: center;
+  background-color: tomato;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+>>>>>>> Stashed changes
 }
