@@ -8,4 +8,5 @@ const mycity1 =
 };
 
 console.log(mycity1);
-console.log(mycity1.Info.Country);
+console.log(mycity1.Info.Country);//Dot Notation
+console.log(mycity1.Info["Country"]);// backet Notation
