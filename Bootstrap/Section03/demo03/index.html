@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo04-form/Input</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <form action="">
+      <div class="form-group">
+      <label for="name">Name</label>
+      <input class="form-control" type="text" name="name" id="name" placeholder="Enter Name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" type="email" name="email" id="email" placeholder="Enter Email">
+        <small class="form-text text-muted">Your Mail not share any one</small>
+      </div>
+
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <select class="form-control" name="gender" id="gender">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+         <textarea  class="form-control" id="message" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="file">Message</label>
+        <input class="form-control-file" type="file" name="file" id="file">
+        <small class="form-text text-muted">File Max be 3mb</small>
+      </div>
+
+     <div class="custom-file">
+        <input class="custom-file-input" type="file" name="cfile" id="cfile">
+        <label class="custom-file-label" for="cfile">custom-file</label>
+     </div>
+
+     <div class="form-group">
+      <label for="mlevel">Membership-level</label>
+      <input class="custom-range" type="range" min="1" max="5" step="1" value="1" name="mlevel" id="mlevel">
+   </div>
+ <button class="btn btn-primary btn-block">Submit</button>
+    </form>
+   <br/>
+   <form action="" class="form-inline">
+     <input type="text" name="uname" placeholder="Enter Username" class="form-control">
+     <input type="password" name="Password" placeholder="Enter password" class="form-control">
+     <input type="checkbox" name="checkbox" class="form-control">Remember me <br>
+     <input type="button" value="Submit" class="btn btn-primary btn-lg">
+   </form>
+
+   <form action="">
+     <div class="form-row">
+       <div class="col">
+         <input type="text" name="fname" id="" class="form-control" placeholder="Enter First Name">
+        </div>
+        <div class="col">
+         <input type="text" name="lname" id="" class="form-control" placeholder="Enter last Name">
+        </div>
+       
+     </div>
+
+   </form>
+
+   <form action="">
+    <div class="form-group">
+      <label for="uname">UserName</label>
+      <input class="form-control is-valid" type="text" name="uname" id="uname" placeholder="Enter userName">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input class="form-control is-invalid" type="password" name="password" id="password" placeholder="Enter password">
+        </div>
+        <div class="form-group">
+          <label for="cpassword">Cpassword</label>
+          <input class="form-control" type="password" name="cpassword" id="cpassword" placeholder="Enter cpassword">
+          </div>
+
+   </form>
+
+  </div>  
+</body>
+</html>
