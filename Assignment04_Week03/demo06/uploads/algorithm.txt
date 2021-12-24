@@ -1,0 +1,7 @@
+step 1 : visit the app or website
+step 2 : find the product or view 
+step 3 : add to cart 
+step 4 : make payment
+step 5 : place order
+step 6 : receive the product
+step 7 : feedback
