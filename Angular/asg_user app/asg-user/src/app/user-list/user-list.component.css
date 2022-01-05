@@ -1,0 +1,51 @@
+#user
+{
+  color:black;
+}
+.badge
+{
+  color:black;
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
+  padding: 10px;
+}
+.users{
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+}
+
+.users li{
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 3.6em;
+  border-radius: 4px;
+}
+.users li:hover {
+  color: #2c3a41;
+  background-color: #e6e6e6;
+  left: .1em;
+}
+.users li.selected:active {
+  background-color: tomato;
+  color: white;
+}
+
+.users li.selected:hover {
+  background-color:tomato;
+  color: white;
+}
+#userdetail
+{
+  padding-top:15px;
+}
+h1
+{
+text-align:left;
+font-weight: bold;
+}
