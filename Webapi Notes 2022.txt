@@ -1,0 +1,251 @@
+
+ Step 1: Create Project Folder.
+ Step 2: inside folder create server.js file and define express,cors,list.
+ Step 3: create app folder then create  app-route.js file and controller.js file.
+ Step 4: goto your terminal and install yarn sequelize-cli on our project using command
+
+         - npm install yarn sequelize-cli -g;
+
+ Step 5: npm init -y (to create server o start)
+ Step 6: goto package.json file change "start" :"nodemon server.js";
+ Step 7: install express and sequelize body-parser and cors
+
+        - npm install --save express pg pg-hstore sequelize body-parser cors ;
+
+ Step 8: - create folder db folder
+             - mkdir db;
+ step 9: go to inside db folder
+            - cd db;
+ step 10: ORM TOOL PROVIDER (sequelize is a client)(init provides the folders) to create folders
+
+       - sequelize-cli init
+ 
+       - run this command to create 4 folders or packages to communicate with database.
+
+       - : - Above command will create folders in db folder config,migrations,models,seeders
+	   - config->db connection properties for development,production and testing
+	   - models->definition of table
+	   - seeders->creates sample record as connects and as shut down deletes all records
+	   - migrations-> creates table in database
+
+ step 11: go to config folder  config.json file.
+
+         - Modify the Development details then
+
+            {
+              "development": 
+              {
+               "username": "postgres",
+               "password": "root@123",
+               "database": "dev_apidb",
+                   "host": "127.0.0.1",
+                "dialect": "postgres",
+               "protocol": "postgres",
+                   "port": 5432
+              }
+           }
+
+   step 12: Run this Command to create database dev_apidb
+         
+             - sequelize-cli db:create
+
+   Step 13: create table on  dev_apidb database by using
+
+           - create a model 
+
+           - sequelize-cli model:generate --name Table_name --attributes attribute_name:data_type,attribute_name:data_type
+       
+      Example :- 
+       
+           -  sequelize-cli model:generate --name Car --attributes carName:string,brandName:string 
+
+   Step 14: Create the table Car (plural of car) in dev_apidb execute below command	
+               
+             - sequelize-cli db:migrate
+
+  step 15: To create the seed file execute below command(need to put the data in a tables)
+
+             - sequelize-cli seed:generate --name seed_name;
+          example :-
+            - sequelize-cli seed:generate --name Car;
+         
+          - then put the values on seeds file 
+
+             - 'use strict';
+
+              module.exports = {
+                 async up (queryInterface, Sequelize) {
+   
+              await queryInterface.bulkInsert('Users', [
+              {
+               firstName: 'Ajay',
+                lastName:'Tripathi',
+               createdAt:new Date(),
+               updatedAt:new Date()
+            },
+            {
+              firstName: 'Ram',
+              lastName:'Tripathi',
+              createdAt:new Date(),
+              updatedAt:new Date()
+            }
+    
+          ], {});
+    
+        },
+
+      async down (queryInterface, Sequelize) {
+    /**
+     * Add commands to revert seed here.
+     *
+     * Example:
+     * await queryInterface.bulkDelete('People', null, {});
+     */
+     }
+    };
+
+  step 16: then save all data on table using these command(save data to server to database).
+
+          - sequelize-cli db:seed:all
+
+  step 17: Back to Previes Folder(because done on a db file)(in db folder done 1.create database 2. create table 3. add dummy data)
+            - cd ..
+
+  step 18: go to your server.js file 
+
+          - const express = require('express');
+            const server = express();
+            const port = 3000;
+            const cors = require('cors');
+            const CORS_OPTION = {origin:"http:localhost:4200"};
+            server.use(express.json());
+            server.use(express.urlencoded({extended:true}));
+            server.use(cors(CORS_OPTION));
+
+            const db = require('./db/models');
+            db.sequelize.sync();
+            require('./app/app-route')(server);
+
+            server.get('/',(req,res)=>{
+            res.send({message:"Server start"})
+            })
+
+           server.listen(port,()=>{
+           console.log(`http://localhost:${port} started`);
+           })
+
+  step 19: goto app-route.js file (create your urls to perform action)
+
+         - module.exports=(app)=>{
+           const express = require('express'); 
+           const ROUTE = express.Router();
+           const UserController = require('./user-controller');
+           ROUTE.get('/users',UserController.findAll);
+           ROUTE.get('/users/:id',UserController.findByPk);
+           ROUTE.post('/users/add/',UserController.create);
+           ROUTE.put('/users/update/:id',UserController.update);
+           ROUTE.delete('/users/delete/:id',UserController.delete);
+
+          app.use('/app',ROUTE);
+          }
+
+   step 20: goto your user-controller.js file (create your logic and perform action)
+
+         - const db = require('../db/models');
+           const User = db.User;
+
+           //select * from users => findAll
+
+           exports.findAll=(req,res)=>{
+           User.findAll()
+           .then(data=>res.json(data))
+           .catch(err=>{
+           res.status(500)
+          .send({message:err.message || 'something want wrong'})
+           });
+          };
+
+        // 2. seelct * from users where id=?=>findByPK
+
+          exports.findByPk=(req,resp)=>{
+          const id=parseInt(req.params.id);
+          User.findByPk(id)
+         .then(data=>resp.json(data))
+         .catch(err=>{
+          resp.status(500)
+             .send({message:err.message||
+              `Something went wrong`})
+         });
+        };
+
+
+       //insert into users (firstName,lastName,createdAt,updateAt) values(?,?,?,?) =>create(user)
+
+        exports.create=(req,res)=>{
+        if(!req.body.firstName){
+        res.status(400).send({
+        message: "Content can not be empty!"
+        });
+          return;
+        }
+
+       const newUser ={
+       firstName : req.body.firstName,
+       lastName: req.body.lastName,
+       createdAt:new Date(),
+      updatedAt:new Date()
+      }
+
+      User.create(newUser)
+     .then(data=>res.json(data))
+     .catch(err=>{
+       res.status(500)
+       .send({message:err.message || 'Something went wrong'});
+      });
+     };
+
+     //update users set firstName=?, lastName=?,createdAt=?,updateAt=?
+
+     exports.update=(req,res)=>{
+     const id = req.params.id;
+     User.update(req.body, { where: { id: id } })
+			.then(num => {
+				if (num == 1) {
+				res.send({
+					message: `User with id ${id} updated successfully.`
+				});
+				} else {
+				res.send({
+					message: `Cannot update User with id=${id}. Maybe User was not found or req.body is empty!`
+				});
+				}
+			})
+			.catch((err) => {
+				res.status(500).send({
+					message: err.message || " Some error retriving User data"
+				})
+			})
+           };
+
+
+       //delete from people where id=?
+
+       exports.delete = (req, res) => {
+       const id = req.params.id;
+       User.destroy({ where: { id: id } })
+      .then(num => {
+      if (num == 1) {
+        res.send({ message: `User with id=${id} deleted successfully!` });
+      } else {
+        res.send({ message: `Cannot delete User with id=${id}. Maybe User was not found!` });
+      }
+      })
+      .catch((err) => {
+      res.status(500).send({
+        message: err.message || " Could not delete User with id=" + id
+      });
+     });
+    };
+
+
+ 

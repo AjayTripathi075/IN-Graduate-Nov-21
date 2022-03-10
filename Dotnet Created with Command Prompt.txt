@@ -1,0 +1,62 @@
+1) check the Dot net Information 
+   
+    - dotnet --info
+
+2)dot net help then use
+ 
+   - dotnet -h
+
+3)then new
+   
+     new : Create a new .NET project or file. 
+
+4)check more information about (Create a new .NET project or file)
+
+   - dotnet new -h
+
+5)then create a solution file
+      - dotnet new sln
+The template "Solution File" was created successfully.
+
+6)then create the webapi
+
+   - dotnet new webapi -o API 
+
+7)Add Project on solution
+
+   -dotnet sln add API
+Project `API\API.csproj` added to the solution.
+
+8)install c# invscode editor extension
+
+9)install c# extension
+
+10)Run the dot net project
+
+- dotnet run
+
+11)for https trusted issues 
+
+ -  dotnet dev-certs https --trust
+
+12)install nuget galary for package installation
+
+13)then goto create a models or entities folder
+   - create your class file as your requirement
+
+14)then create a Datafolder where we create a DBCONTEXT CLASS.
+    - 
+
+15)install tool for migration
+-dotnet tool install --global dotnet-ef --version 5.0.15
+
+You can invoke the tool using the following command: dotnet-ef 
+Tool 'dotnet-ef' (version '5.0.15') was successfully installed.
+
+16) add migration
+
+- dotnet ef migrations add initialcreate -o Data/Migrations
+
+17)Create database using entityframework 
+
+ - dotnet ef database update
